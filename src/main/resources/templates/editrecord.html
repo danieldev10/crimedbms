@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Forms / Layouts - NiceAdmin Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="/assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="/assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="/assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ===== Header ===== -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <!-- Logo -->
+    <div class="d-flex align-items-center justify-content-evenly">
+      <a th:href="@{/}" class="logo d-flex align-items-center">
+        <img src="/assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">NCMS</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+    <!-- End Logo -->
+
+    <!-- Page Title -->
+    <div class="search-bar">
+      <span class="breadcrumb-item active">National Crime Management System</span>
+    </div>
+    <!-- End Page Title -->
+
+    <!-- Current User w/ Dropdown -->
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <div class="rounded-circle-large">
+              <i class="bi bi-person"></i>
+            </div>
+            <span class="d-none d-md-block dropdown-toggle ps-2" th:text="${firstName} + ' ' + ${lastName}">Guest</span>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            <li>
+              <a class="dropdown-item d-flex align-items-center" th:href="@{/users}">
+                <i class="bi bi-gear"></i>
+                <span>Manage Roles <span style="color: rgb(135, 134, 134);">(Admin)</span></span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" th:href="@{/login}"
+                onclick="return confirm('Are you sure you want to log out?')">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+      </ul>
+    </nav>
+    <!-- End Current User w/ Dropdown -->
+
+  </header>
+  <!-- ===== End Header ===== -->
+
+  <!-- ===== End Side Bar ===== -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/}">
+          <i class="bi bi-layout-text-window-reverse"></i>
+          <span>Records</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/prisons}">
+          <i class="bi bi-house-lock"></i><span>Prisons</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/states}">
+          <i class="bi bi-pin-map"></i><span>States</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/crimes}">
+          <i class="bi bi-exclamation-octagon"></i><span>Crime</span>
+        </a>
+      </li>
+
+      <li class="nav-heading">User</li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/users}">
+          <i class="bi bi-gear"></i>
+          <span>Manage Roles <span style="color: rgb(135, 134, 134);">(Admin)</span></span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" th:href="@{/login}" onclick="return confirm('Are you sure you want to log out?')">
+          <i class="bi bi-box-arrow-right"></i>
+          <span>Sign out</span>
+        </a>
+      </li>
+    </ul>
+
+  </aside>
+  <!-- ===== End Side Bar ===== -->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Edit Criminal Record</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Criminal Records</li>
+          <li class="breadcrumb-item active">Update</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Record</h5>
+              <!-- th:action="@{/records/{id}(id=${criminalrecord.id})}" -->
+              <form th:action="@{/records/{id}(id=${criminalrecord.id})}" th:object="${criminalrecord}" method="post"
+                class="row g-3">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-title">Personal Info</h6>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="col-md-6">
+                              <a
+                                th:href="@{'/assets/img/photos/' + ${criminalrecord.id} + '/' + ${criminalrecord.photo}}">
+                                <img
+                                  th:src="@{'/assets/img/photos/' + ${criminalrecord.id} + '/' + ${criminalrecord.photo}}"
+                                  width="190" height="162">
+                              </a>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="col-md-12">
+                              <label for="first_name" class="form-label">ID</label>
+                              <input type="text" class="form-control" th:field="*{id}">
+                            </div>
+                            <div class="col-md-12">
+                              <label for="inputEmail5" class="form-label">Case
+                                Number</label>
+                              <input type="text" class="form-control" th:field="*{case_number}">
+                            </div>
+                          </div>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                          <label for="first_name" class="form-label">First
+                            Name</label>
+                          <input type="text" class="form-control" th:field="*{first_name}">
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                          <label for="inputEmail5" class="form-label">Last
+                            Name</label>
+                          <input type="text" class="form-control" th:field="*{last_name}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-title">Legal Proceedings</h6>
+                        <div class="col-md-12">
+                          <label for="inputEmail5" class="form-label">Court</label>
+                          <input type="text" class="form-control" th:field="*{court}">
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                          <label for="inputPassword5" class="form-label">Court Date</label>
+                          <input type="date" class="form-control" th:field="*{court_date}"
+                            th:attr="value=${#dates.format(criminalrecord.court_date, 'yyyy-MM-dd')}">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-title">Offense Details</h6>
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="col-md-12">
+                              <label for="inputPassword5" class="form-label">Date of
+                                Offense</label>
+                              <input type="date" class="form-control" th:field="*{date_of_offense}"
+                                th:attr="value=${#dates.format(criminalrecord.date_of_offense, 'yyyy-MM-dd')}">
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                              <label for="inputPassword5" class="form-label">Date of
+                                Arrest</label>
+                              <input type="date" class="form-control" th:field="*{date_of_arrest}"
+                                th:attr="value=${#dates.format(criminalrecord.date_of_arrest, 'yyyy-MM-dd')}">
+                            </div>
+
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="col-md-12">
+                              <label for="charges" class="form-label">Charges</label>
+                              <input type="text" class="form-control" th:field="*{charges}">
+                            </div>
+                            <br>
+                            <div class="col-md-12">
+                              <label for="charges" class="form-label">Location of
+                                Offense</label>
+                              <input type="text" class="form-control" th:field="*{location_of_offence}">
+                            </div>
+                            <br>
+                          </div>
+                          <div class="col-md-12">
+                            <label for="inputAddress5" class="form-label">Crime</label>
+                            <select id="crime" class="form-control" name="crime.id">
+                              <option th:each="crime : ${crimes}" th:value="${crime.id}" th:text="${crime.name}">
+                              </option>
+                            </select>
+                          </div>
+                          <div class="row">
+                            <div class="col-lg-6">
+                              <br>
+                              <div class="col-md-12">
+                                <label for="inputPassword5" class="form-label">Punishment
+                                  Start
+                                  Date</label>
+                                <input type="date" class="form-control" th:field="*{punishment_start_date}"
+                                  th:attr="value=${#dates.format(criminalrecord.punishment_start_date, 'yyyy-MM-dd')}">
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <br>
+                              <div class="col-md-12">
+                                <label for="punishment_start_date" class="form-label">Period</label>
+                                <input type="text" class="form-control" th:field="*{punishment_period}">
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-title">
+                          Location & Administrative Information
+                        </h6>
+                        <div class="col-md-12">
+                          <label for="inputCity" class="form-label">Prison</label>
+                          <select id="prison" class="form-control" name="prison.id">
+
+                            <option th:each="prison : ${prisons}" th:value="${prison.id}" th:text="${prison.name}">
+                            </option>
+                          </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                          <label for="inputState" class="form-label">State</label>
+                          <select id="state" class="form-control" name="state.id">
+                            <option th:each="state : ${states}" th:value="${state.id}" th:text="${state.name}"></option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>Flexisaf</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+      <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/chart.js/chart.umd.js"></script>
+  <script src="/assets/vendor/echarts/echarts.min.js"></script>
+  <script src="/assets/vendor/quill/quill.min.js"></script>
+  <script src="/assets/vendor/simple-datatables/simple-datatables.js"></script>
+  <script src="/assets/vendor/tinymce/tinymce.min.js"></script>
+  <script src="/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

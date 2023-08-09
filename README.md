@@ -107,6 +107,11 @@ The Crime Records Management System is an automated solution designed to efficie
   - This represents a many-to-one relationship, where many criminal records are associated with one user for creation and modification.
 
 #### Demo
+
+##### Screenrecord:
+- https://drive.google.com/file/d/1--xvkaeqaYRvlIt_YRXKVz-HurOU6RQg/view?usp=sharing
+
+##### Screenshots
 - Login
   <img width="1440" alt="login" src="https://github.com/danieldev10/crimedbms/assets/64502843/85437cfe-2c0f-4ff1-8e8e-14328ce07aac">
 

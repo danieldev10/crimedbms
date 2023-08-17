@@ -1,6 +1,6 @@
 # Criminal Record Management System
 
-##Overview
+## Overview
 The Crime Records Management System is an automated solution designed to efficiently manage and store records related to criminals within a specific area. This system streamlines the process of recording, organizing, and accessing crucial information about criminal activities, cases, and associated details.
 
 ## Key Features
